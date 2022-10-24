@@ -5,7 +5,7 @@ from collections import Counter
 def main():
     dblp_path = 'dataset/dblp.xml'
     load_path = './dataset/article.csv'
-    save_path = './dataset/article_2.csv'
+    save_path = './dataset/article_2.json'
    
 
     # Opening JSON file
@@ -21,12 +21,17 @@ def main():
     final_data = [i for i in flat_data if i]
 
     dict_of_counts = Counter(final_data);
+
+    # remove year word
+    del dict_of_counts['year']
+
+    sort_by_key = dict(sorted(dict_of_counts.items(),key=lambda item:item[0]))
    
     # Closing file
     f.close()
 
     f2 = open(save_path, 'w')
-    json.dump(dict_of_counts, f2)
+    json.dump(sort_by_key, f2)
     f2.close
 
 
