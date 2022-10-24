@@ -4,7 +4,9 @@ import csv
 import codecs
 import ujson
 import re
-import json
+import os
+from change_data import changeData
+from make_bar_graph import makeBarGraph
 
 # all of the element types in dblp
 all_elements = {"article", "inproceedings", "proceedings", "book", "incollection", "phdthesis", "mastersthesis", "www"}
@@ -220,7 +222,13 @@ def main():
     except IOError:
         log_msg("ERROR: Failed to load file \"{}\". Please check your XML and DTD files.".format(dblp_path))
         exit()
-    parse_article(dblp_path, save_path, True)
+
+    if not os.path.exists(save_path):
+        parse_article(dblp_path, save_path, True)
+    else:
+        changeData()
+        makeBarGraph()
+
 
 
 

@@ -1,8 +1,7 @@
 import matplotlib.pyplot as plt
 import json
 
-def main():
-
+def makeBarGraph():
     file_to_open = 'dataset/article_2.json'
 
     dictionary = json.load(open(file_to_open, 'r'))
@@ -28,6 +27,10 @@ def main():
     plt.ylabel('Year')
 
     plt.show()
+
+def main():
+    makeBarGraph()
+    
 
 
 if __name__ == '__main__':

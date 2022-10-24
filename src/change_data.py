@@ -2,7 +2,7 @@ import csv
 import json
 from collections import Counter
 
-def main():
+def changeData():
     dblp_path = 'dataset/dblp.xml'
     load_path = './dataset/article.csv'
     save_path = './dataset/article_2.json'
@@ -33,6 +33,9 @@ def main():
     f2 = open(save_path, 'w')
     json.dump(sort_by_key, f2)
     f2.close
+    
+def main():
+    changeData();
 
 
 
