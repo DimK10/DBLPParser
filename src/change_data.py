@@ -1,28 +1,33 @@
 import csv
 import json
+from collections import Counter
 
 def main():
     dblp_path = 'dataset/dblp.xml'
-    save_path = 'dataset/article.csv'
+    load_path = './dataset/article.csv'
+    save_path = './dataset/article_2.csv'
    
 
     # Opening JSON file
-    f = open(save_path)
+    f = open(load_path, encoding="utf8")
     
     # returns JSON object as 
     # a dictionary
-    data = csv.reader(f)
+    data = list(csv.reader(f))
 
-    dict_of_counts = {};
-    
-    # Iterating through the json
-    # list
-    for i in data:
-        dict_of_counts = {item:data.count(item) for item in data}
+    flat_data = [item for sublist in data for item in sublist]
 
-    json.dump(dict_of_counts, f)
+    # remove empty strings
+    final_data = [i for i in flat_data if i]
+
+    dict_of_counts = Counter(final_data);
+   
     # Closing file
     f.close()
+
+    f2 = open(save_path, 'w')
+    json.dump(dict_of_counts, f2)
+    f2.close
 
 
 

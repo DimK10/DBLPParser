@@ -166,7 +166,7 @@ def parse_author(dblp_path, save_path, save_to_csv=False):
 
 def parse_article(dblp_path, save_path, save_to_csv=False, include_key=False):
     type_name = ['article']
-    features = ['year', 'title']
+    features = ['year']
     info = parse_entity(dblp_path, save_path, type_name, features, save_to_csv=save_to_csv, include_key=include_key)
     log_msg('Total articles found: {}, articles contain all features: {}, articles contain part of features: {}'
             .format(info[0] + info[1], info[0], info[1]))
@@ -212,14 +212,15 @@ def parse_publications(dblp_path, save_path, save_to_csv=False, include_key=Fals
 
 def main():
     dblp_path = 'dataset/dblp.xml'
-    save_path = 'dataset/article.json'
+    # save_path = 'dataset/article.json'
+    save_path = 'dataset/article.csv'
     try:
         context_iter(dblp_path)
         log_msg("LOG: Successfully loaded \"{}\".".format(dblp_path))
     except IOError:
         log_msg("ERROR: Failed to load file \"{}\". Please check your XML and DTD files.".format(dblp_path))
         exit()
-    parse_article(dblp_path, save_path, save_to_csv=True)
+    parse_article(dblp_path, save_path, True)
 
 
 
