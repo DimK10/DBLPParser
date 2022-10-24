@@ -8,6 +8,9 @@ def changeData():
     save_path = './dataset/article_2.json'
    
 
+    print("Cahnging data to json format for graph...")
+
+
     # Opening JSON file
     f = open(load_path, encoding="utf8")
     
@@ -33,7 +36,7 @@ def changeData():
     f2 = open(save_path, 'w')
     json.dump(sort_by_key, f2)
     f2.close
-    
+
 def main():
     changeData();
 

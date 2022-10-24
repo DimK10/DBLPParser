@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import json
 
 def makeBarGraph():
+
+    print("Creating Bar graph...")
     file_to_open = 'dataset/article_2.json'
 
     dictionary = json.load(open(file_to_open, 'r'))

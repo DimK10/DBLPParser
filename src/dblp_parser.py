@@ -225,9 +225,9 @@ def main():
 
     if not os.path.exists(save_path):
         parse_article(dblp_path, save_path, True)
-    else:
-        changeData()
-        makeBarGraph()
+    
+    changeData()
+    makeBarGraph()
 
 
 
