@@ -4,6 +4,7 @@ import csv
 import codecs
 import ujson
 import re
+import json
 
 # all of the element types in dblp
 all_elements = {"article", "inproceedings", "proceedings", "book", "incollection", "phdthesis", "mastersthesis", "www"}
@@ -165,7 +166,7 @@ def parse_author(dblp_path, save_path, save_to_csv=False):
 
 def parse_article(dblp_path, save_path, save_to_csv=False, include_key=False):
     type_name = ['article']
-    features = ['title', 'author', 'year', 'journal', 'pages']
+    features = ['year', 'title']
     info = parse_entity(dblp_path, save_path, type_name, features, save_to_csv=save_to_csv, include_key=include_key)
     log_msg('Total articles found: {}, articles contain all features: {}, articles contain part of features: {}'
             .format(info[0] + info[1], info[0], info[1]))
@@ -218,7 +219,8 @@ def main():
     except IOError:
         log_msg("ERROR: Failed to load file \"{}\". Please check your XML and DTD files.".format(dblp_path))
         exit()
-    parse_article(dblp_path, save_path, save_to_csv=False)
+    parse_article(dblp_path, save_path, save_to_csv=True)
+
 
 
 if __name__ == '__main__':
