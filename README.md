@@ -7,6 +7,13 @@ The process i followed was the following:
  - Use the dblp_parser.py to generate a csv file for the article type and year feature, then use the change_data.py to generate a new file of type json, by counting from the csv file all duplicate year values and making a dictionary out of it that then is written is json format.
  - Load that json file to a bar graph by using the matplotlib library. The json file can also be used for making graphs using other technologies (such as js chart libraries).
 
+ <br/>
+
+ In order to run: switch directory th the src folder and run the command:<br/>
+ ```
+ python dblp_parser.py
+ ```
+<br/>
 original repo readme:
 
 # DBLP Dataset Parser 
