@@ -8,7 +8,7 @@ def changeData():
     save_path = './dataset/article_2.json'
    
 
-    print("Cahnging data to json format for graph...")
+    print("Changing data to json format for graph...")
 
 
     # Opening JSON file
