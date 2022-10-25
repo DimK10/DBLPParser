@@ -9,7 +9,7 @@ The process i followed was the following:
 
  <br/>
 
- In order to run: switch directory th the src folder and run the command:<br/>
+ In order to run: switch directory to the src folder and run the command:<br/>
  ```
  python dblp_parser.py
  ```
