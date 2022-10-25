@@ -1,4 +1,15 @@
-# DBLP Dataset Parser
+# DBLP Dataset Parser for Publications Per Year Bar Graph
+
+This code demonstrates a bar graph by parsing dblp.xml and producing a simple bar graph that shows article publications per year, as an exercise. The author of the parser is [Zhang Hao](https://github.com/IsaacChanghau). I added only the change_data.py, and make_bar_graph.py, in order to show the graph needed for my use case.
+<br/>
+
+The process i followed was the following:
+ - Use the dblp_parser.py to generate a csv file for the article type and year feature, then use the change_data.py to generate a new file of type json, by counting from the csv file all duplicate year values and making a dictionary out of it that then is written is json format.
+ - Load that json file to a bar graph by using the matplotlib library. The json file can also be used for making graphs using other technologies (such as js chart libraries).
+
+original repo readme:
+
+# DBLP Dataset Parser 
 
 ![Authour](https://img.shields.io/badge/Author-Zhang%20Hao%20(Isaac%20Changhau)-blue.svg) ![Python](https://img.shields.io/badge/Python-3.6.5-brightgreen.svg)
 
